@@ -12,4 +12,5 @@ data/*
 
 *.bzg
 *.reads.gz
-*.txt.gz
+*.response.txt
+*.response.txt.gz
