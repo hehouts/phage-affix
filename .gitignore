@@ -21,6 +21,14 @@ contigs.sizes
 reads.bgz.index
 
 
+commands.log
+catlas.csv
+contigs.fa.gz.info.csv
+contigs.fa.gz.indices
+contigs.fa.gz.mphf
+first_doms.txt
+reads.bgz.labels
+
 *.reads.gz
 *.response.txt
 *.response.txt.gz
