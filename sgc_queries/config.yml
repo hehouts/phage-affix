@@ -1,0 +1,61 @@
+#catlas_base: 'SRR5962882'
+catlas_base: 'SRR5962883'
+input_sequences:
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/metagenomes/SRR5962882.abundtrim.fq.gz
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/metagenomes/SRR5962883.abundtrim.fq.gz
+ksize: 31
+radius: 1
+#experiment: five_phage
+
+search:
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003436725.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003437995.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003467905.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003435635.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003470035.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003470775.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003471045.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003471505.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003472405.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003473205.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCF_000155205.fna
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/ivig_3504.fa
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/uvig_409809.fa
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/uvig_430148.fa
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/uvig_477575.fa
+- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/uvig_560376.fa
+
+
+
+#- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/uvig_409809.fa
+#- ~hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/ivig_3504.fa
+#- /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/GCA_003436725.fna
+
+#touch /home/hehouts/dynamic-duos-virome/phage_affix/data/ref_genomes/uvig_409809.fa
+#touch SRR5962882_k31_r1/first_doms.txt
+#touch SRR5962882_k31_r1/catlas.csv
+#touch SRR5962882_k31/contigs.mphf
+#touch SRR5962882_k31/contigs.indices
+#touch SRR5962882_k31/contigs.info.csv
+#touch SRR5962882_k31/bcalm.unitigs.db
+
+#touch SRR5962882_k31/bcalm.unitigs.fa
+
+#touch SRR5962882_k31/bcalm.unitigs.predb
+#touch SRR5962882_k31/bcalm.unitigs.pickle
+#touch SRR5962882_k31/bcalm.unitigs.fa.sig
+
+#touch SRR5962882_k31/cdbg.gxt
+#touch SRR5962882_k31/contigs.info.csv
+#touch SRR5962882_k31/contigs.sig
+#touch SRR5962882_k31/bcalm.unitigs.db
+
+#touch SRR5962882_k31/contigs.mphf
+#touch SRR5962882_k31/contigs.indices
+#touch SRR5962882_k31/contigs.sizes
+
+#touch SRR5962882_k31/reads.bgz.index
+ 
+#touch SRR5962882_k31_r1/first_doms.txt
+#touch SRR5962882_k31_r1/catlas.csv
+#touch SRR5962882_k31_r1/commands.log 
