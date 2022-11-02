@@ -14,3 +14,5 @@ data/*
 *.reads.gz
 *.response.txt
 *.response.txt.gz
+*.cdbg_ids.txt.gz
+*.frontier.txt.gz
