@@ -10,7 +10,17 @@ data/*
 
 #### sgc
 
-*.bzg
+bcalm*
+*.bgz
+
+contigs.indices
+contigs.info.csv
+contigs.mphf
+cdbg.gxt
+contigs.sizes
+reads.bgz.index
+
+
 *.reads.gz
 *.response.txt
 *.response.txt.gz
