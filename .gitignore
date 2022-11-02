@@ -2,6 +2,10 @@
 data/*
 
 *.fa
+*.fa.gz
+*.fna
+*.fna.gz
+
 *.sig
 
 #### sgc
