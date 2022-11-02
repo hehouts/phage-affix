@@ -11,3 +11,5 @@ data/*
 #### sgc
 
 *.bzg
+*.reads.gz
+*.txt.gz
