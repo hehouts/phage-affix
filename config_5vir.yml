@@ -1,0 +1,25 @@
+catlas_base: 'SRR5962882'
+input_sequences:
+- SRR5962882.abundtrim.fq.gz
+ksize: 31
+radius: 1
+experiment: five_phage
+
+search:
+- genbank_subset/GCF_003471045.1_ASM347104v1_genomic.fna
+- genbank_subset/GCF_003473205.1_ASM347320v1_genomic.fna
+- genbank_subset/GCF_003467905.1_ASM346790v1_genomic.fna
+- genbank_subset/GCF_003437995.1_ASM343799v1_genomic.fna
+- genbank_subset/GCF_003471505.1_ASM347150v1_genomic.fna
+- genbank_subset/GCF_003472405.1_ASM347240v1_genomic.fna
+- genbank_subset/GCF_003470035.1_ASM347003v1_genomic.fna
+- genbank_subset/GCF_000155205.1_cds_from_genomic.fna
+- genbank_subset/GCF_003470775.1_ASM347077v1_genomic.fna
+- genbank_subset/GCF_003435635.1_ASM343563v1_genomic.fna
+- genbank_subset/GCF_003436725.1_ASM343672v1_genomic.fna
+- genbank_subset/GCA_900066145.1_genomic.fna.gz
+- gpdb_subset/ivig_3504.fa
+- gpdb_subset/uvig_409809.fa
+- gpdb_subset/uvig_430148.fa
+- gpdb_subset/uvig_477575.fa
+- gpdb_subset/uvig_560376.fa
