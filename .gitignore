@@ -1,0 +1,9 @@
+.snakemake/
+data/*
+
+*.fa
+*.sig
+
+#### sgc
+
+*.bzg
