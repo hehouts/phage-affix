@@ -1,36 +1,99 @@
-.snakemake/
-data/*
+# The Ultimate .gitignore
+
+
+### General
+
+*/data/*
+*/raw_data/*
+
+
+### Common data files
+
+*.fasta
+*.fasta.gz
 
 *.fa
 *.fa.gz
+
 *.fna
 *.fna.gz
 
+*.fastq
+*.fastq.gz
+
+*.fq
+*.fq.gz
+
+
+### Sourmash
+
 *.sig
 
-#### sgc
-
-bcalm*
-*.bgz
-
-contigs.indices
-contigs.info.csv
-contigs.mphf
-cdbg.gxt
-contigs.sizes
-reads.bgz.index
 
 
-commands.log
-catlas.csv
-contigs.fa.gz.info.csv
-contigs.fa.gz.indices
-contigs.fa.gz.mphf
-first_doms.txt
-reads.bgz.labels
+### Spacegraphcats
 
 *.reads.gz
+
 *.response.txt
+
 *.response.txt.gz
+
 *.cdbg_ids.txt.gz
+
 *.frontier.txt.gz
+
+
+bcalm*
+
+*.bgz
+
+
+contigs.indices
+
+contigs.info.csv
+
+contigs.mphf
+
+cdbg.gxt
+
+contigs.sizes
+
+reads.bgz.index
+
+commands.log
+
+catlas.csv
+
+contigs.fa.gz.info.csv
+
+contigs.fa.gz.indices
+
+contigs.fa.gz.mphf
+
+first_doms.txt
+
+reads.bgz.labels
+
+
+*.reads.gz
+
+*.response.txt
+
+*.response.txt.gz
+
+*.cdbg_ids.txt.gz
+
+*.frontier.txt.gz
+
+
+
+### Snakemake
+
+.snakemake/
+
+
+### Misc
+
+
+
