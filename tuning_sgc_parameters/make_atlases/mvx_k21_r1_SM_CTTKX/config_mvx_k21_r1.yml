@@ -1,0 +1,11 @@
+catlas_base: 'SM_CTTKX'
+input_sequences:
+- /home/hehouts/phage_affix/data/viromes/SM_CTTKX.abundtrim.fq.gz
+ksize: 21
+radius: 1
+search:
+- /home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa
+- /home/hehouts/phage_affix/data/ref_genomes/uvig_430148.fa
+- /home/hehouts/phage_affix/data/ref_genomes/uvig_477575.fa
+- /home/hehouts/phage_affix/data/ref_genomes/uvig_560376.fa
+- /home/hehouts/phage_affix/data/ref_genomes/ivig_3504.fa

@@ -1,0 +1,14 @@
+#                                                                 --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name             accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ----------   -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_18       -          YP_008320191@NC_021861 -            3.5e-07   20.7   0.2   9.3e-05   12.7   0.0   2.2   2   0   0   2   2   2   2 # 13614 # 14432 # 1 # ID=1_18;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.358
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/74.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/74.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/74.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:17 2023
+# [ok]

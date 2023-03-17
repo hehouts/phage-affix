@@ -1,0 +1,17 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_17       -          Pfam-B_1324          PB001324       0.004    5.6  16.4    0.0068    4.9  16.4   1.3   1   0   0   1   1   1   1 # 10478 # 13600 # 1 # ID=1_17;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.422
+uvig_409809_17       -          Pfam-B_1382          PB001382         2.8   -2.5  21.7       5.3   -3.4  21.7   1.5   1   0   0   1   1   1   0 # 10478 # 13600 # 1 # ID=1_17;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.422
+uvig_409809_29       -          Pfam-B_1966          PB001966         2.4   -0.5  16.5     0.044    5.1   5.6   3.2   2   2   1   3   3   3   0 # 21182 # 22525 # 1 # ID=1_29;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.436
+uvig_409809_17       -          Pfam-B_2091          PB002091         3.3   -3.6  23.8     0.059    2.2  17.0   1.4   2   0   0   2   2   2   0 # 10478 # 13600 # 1 # ID=1_17;partial=00;start_type=ATG;rbs_motif=AGGA;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.422
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/15.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/15.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/15.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:28 2023
+# [ok]

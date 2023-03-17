@@ -1,0 +1,1 @@
+['/home/hehouts/spacegraphcats/spacegraphcats/search/query_by_sequence.py', 'SM_CTTKX_k11', 'SM_CTTKX_k11_r1', 'SM_CTTKX_k11_r1_search_oh0', '--query', '/home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa', '-k', '11', '--contigs-db', 'SM_CTTKX_k11/bcalm.unitigs.db']

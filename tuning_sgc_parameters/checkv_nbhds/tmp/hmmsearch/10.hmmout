@@ -1,0 +1,15 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_10       -          Phage_connect_1      PF05135.13   1.2e-10   33.0   0.0   1.6e-10   32.5   0.0   1.1   1   0   0   1   1   1   1 # 7897 # 8205 # 1 # ID=1_10;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.447
+uvig_409809_4        -          Phage_prot_Gp6       PF05133.14     2e-88  288.3   8.2   2.6e-88  287.9   8.2   1.0   1   0   0   1   1   1   1 # 2411 # 3895 # 1 # ID=1_4;partial=00;start_type=GTG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.420
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/10.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/10.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/10.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:19 2023
+# [ok]

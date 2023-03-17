@@ -1,0 +1,13 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/2.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/2.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/2.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:20 2023
+# [ok]

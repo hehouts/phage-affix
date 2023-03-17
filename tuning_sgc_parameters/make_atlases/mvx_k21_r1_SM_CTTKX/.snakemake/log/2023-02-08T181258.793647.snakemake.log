@@ -1,0 +1,192 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count    min threads    max threads
+---------------------------  -------  -------------  -------------
+extract_contigs                    1              1              1
+extract_contigs_single_file        5              1              1
+extract_reads                      1              1              1
+extract_reads_single_file          5              1              1
+search                             1              1              1
+total                             13              1              1
+
+Select jobs to execute...
+
+[Wed Feb  8 18:12:59 2023]
+rule search:
+    input: /home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa, /home/hehouts/phage_affix/data/ref_genomes/uvig_430148.fa, /home/hehouts/phage_affix/data/ref_genomes/uvig_477575.fa, /home/hehouts/phage_affix/data/ref_genomes/uvig_560376.fa, /home/hehouts/phage_affix/data/ref_genomes/ivig_3504.fa, SM_CTTKX_k21_r1/first_doms.txt, SM_CTTKX_k21_r1/catlas.csv, SM_CTTKX_k21/contigs.mphf, SM_CTTKX_k21/contigs.indices, SM_CTTKX_k21/contigs.info.csv, SM_CTTKX_k21/bcalm.unitigs.db
+    output: SM_CTTKX_k21_r1_search_oh0/results.csv, SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.contigs.sig, SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.frontier.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.contigs.sig, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.frontier.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.contigs.sig, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.frontier.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.contigs.sig, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.frontier.txt.gz, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.contigs.sig, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.frontier.txt.gz
+    jobid: 6
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.txt.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.txt.gz; Set of input files has changed since last execution
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:06 2023]
+Finished job 6.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:06 2023]
+rule extract_reads_single_file:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k21/reads.bgz.index, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.reads.gz
+    jobid: 19
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.reads.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_560376.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:07 2023]
+Finished job 19.
+2 of 13 steps (15%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:07 2023]
+rule extract_reads_single_file:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k21/reads.bgz.index, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.reads.gz
+    jobid: 17
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.reads.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_430148.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:09 2023]
+Finished job 17.
+3 of 13 steps (23%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:09 2023]
+rule extract_contigs_single_file:
+    input: SM_CTTKX_k21/bcalm.unitigs.db, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.contigs.fa.gz
+    jobid: 11
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.contigs.fa.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_560376.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:10 2023]
+Finished job 11.
+4 of 13 steps (31%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:10 2023]
+rule extract_reads_single_file:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k21/reads.bgz.index, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.reads.gz
+    jobid: 20
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.reads.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.txt.gz
+    wildcards: queryname=ivig_3504.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:11 2023]
+Finished job 20.
+5 of 13 steps (38%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:11 2023]
+rule extract_reads_single_file:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k21/reads.bgz.index, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.reads.gz
+    jobid: 18
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.reads.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_477575.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:13 2023]
+Finished job 18.
+6 of 13 steps (46%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:13 2023]
+rule extract_contigs_single_file:
+    input: SM_CTTKX_k21/bcalm.unitigs.db, SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz
+    jobid: 1
+    reason: Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_409809.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:14 2023]
+Finished job 1.
+7 of 13 steps (54%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:14 2023]
+rule extract_contigs_single_file:
+    input: SM_CTTKX_k21/bcalm.unitigs.db, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.contigs.fa.gz
+    jobid: 12
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.contigs.fa.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.txt.gz
+    wildcards: queryname=ivig_3504.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:14 2023]
+Finished job 12.
+8 of 13 steps (62%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:14 2023]
+rule extract_contigs_single_file:
+    input: SM_CTTKX_k21/bcalm.unitigs.db, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.contigs.fa.gz
+    jobid: 10
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.contigs.fa.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_477575.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:15 2023]
+Finished job 10.
+9 of 13 steps (69%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:15 2023]
+rule extract_reads_single_file:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k21/reads.bgz.index, SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    jobid: 14
+    reason: Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_409809.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:17 2023]
+Finished job 14.
+10 of 13 steps (77%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:17 2023]
+rule extract_contigs_single_file:
+    input: SM_CTTKX_k21/bcalm.unitigs.db, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.contigs.fa.gz
+    jobid: 9
+    reason: Missing output files: SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.contigs.fa.gz; Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_430148.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:18 2023]
+Finished job 9.
+11 of 13 steps (85%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:18 2023]
+localrule extract_contigs:
+    input: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.contigs.fa.gz
+    jobid: 0
+    reason: Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.contigs.fa.gz, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.contigs.fa.gz
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:18 2023]
+Finished job 0.
+12 of 13 steps (92%) done
+Select jobs to execute...
+
+[Wed Feb  8 18:13:18 2023]
+localrule extract_reads:
+    input: SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.reads.gz
+    jobid: 13
+    reason: Input files updated by another job: SM_CTTKX_k21_r1_search_oh0/ivig_3504.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_560376.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_430148.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_477575.fa.cdbg_ids.reads.gz, SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    resources: tmpdir=/tmp
+
+[Wed Feb  8 18:13:18 2023]
+Finished job 13.
+13 of 13 steps (100%) done
+Complete log: .snakemake/log/2023-02-08T181258.793647.snakemake.log

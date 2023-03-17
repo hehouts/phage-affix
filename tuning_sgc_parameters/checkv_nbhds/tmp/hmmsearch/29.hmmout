@@ -1,0 +1,17 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_32       -          K06141               -            5.7e-07   19.7  25.7   6.8e-07   19.4  25.7   1.1   1   0   0   1   1   1   1 # 23310 # 24464 # -1 # ID=1_32;partial=01;start_type=Edge;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.410
+uvig_409809_29       -          K06409               -            1.6e-26   83.8  39.0   1.6e-23   73.9  34.0   2.6   1   1   0   1   1   1   1 # 21182 # 22525 # 1 # ID=1_29;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.436
+uvig_409809_31       -          K06410               -              7e-07   19.6   0.0     1e-06   19.1   0.0   1.2   1   0   0   1   1   1   1 # 22637 # 23239 # 1 # ID=1_31;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.405
+uvig_409809_31       -          K06988               -            6.1e-05   13.4   0.0   7.6e-05   13.1   0.0   1.2   1   0   0   1   1   1   1 # 22637 # 23239 # 1 # ID=1_31;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.405
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/29.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/29.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/29.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:28 2023
+# [ok]

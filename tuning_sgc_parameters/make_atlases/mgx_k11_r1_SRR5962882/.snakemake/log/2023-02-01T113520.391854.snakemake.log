@@ -1,0 +1,117 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count    min threads    max threads
+---------------------------  -------  -------------  -------------
+bcalm_catlas_prepare_input         1              1              1
+bcalm_catlas_sort                  1              1              1
+bcalm_cdbg                         1              1              1
+bcalm_cdbg_inpfiles                1              1              1
+build_catlas                       1              1              1
+extract_contigs                    1              1              1
+extract_contigs_single_file        1              1              1
+extract_reads                      1              1              1
+extract_reads_single_file          1              1              1
+index_reads                        1              1              1
+make_contigs_kmer_index            1              1              1
+reads_bgzf                         1              1              1
+search                             1              1              1
+total                             13              1              1
+
+Select jobs to execute...
+
+[Wed Feb  1 11:35:20 2023]
+rule reads_bgzf:
+    input: /home/hehouts/phage_affix/data/metagenomes/SRR5962882.abundtrim.fq.gz
+    output: SRR5962882/reads.bgz
+    jobid: 11
+    reason: Missing output files: SRR5962882/reads.bgz
+    wildcards: catlas_base=SRR5962882
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:52:58 2023]
+Finished job 11.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:52:58 2023]
+rule bcalm_cdbg_inpfiles:
+    input: /home/hehouts/phage_affix/data/metagenomes/SRR5962882.abundtrim.fq.gz
+    output: SRR5962882_k11/bcalm.inputlist.txt
+    jobid: 5
+    reason: Missing output files: SRR5962882_k11/bcalm.inputlist.txt
+    wildcards: cdbg_dir=SRR5962882_k11
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:53:00 2023]
+Finished job 5.
+2 of 13 steps (15%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:53:00 2023]
+rule bcalm_cdbg:
+    input: SRR5962882_k11/bcalm.inputlist.txt
+    output: SRR5962882_k11/bcalm.unitigs.fa
+    log: SRR5962882_k11/bcalm.log.txt
+    jobid: 4
+    reason: Missing output files: SRR5962882_k11/bcalm.unitigs.fa; Input files updated by another job: SRR5962882_k11/bcalm.inputlist.txt
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 12:10:24 2023]
+Finished job 4.
+3 of 13 steps (23%) done
+Select jobs to execute...
+
+[Wed Feb  1 12:10:24 2023]
+rule bcalm_catlas_sort:
+    input: SRR5962882_k11/bcalm.unitigs.fa
+    output: SRR5962882_k11/bcalm.unitigs.predb, SRR5962882_k11/bcalm.unitigs.pickle, SRR5962882_k11/bcalm.unitigs.fa.sig
+    jobid: 3
+    reason: Missing output files: SRR5962882_k11/bcalm.unitigs.pickle, SRR5962882_k11/bcalm.unitigs.predb; Input files updated by another job: SRR5962882_k11/bcalm.unitigs.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 12:14:10 2023]
+Finished job 3.
+4 of 13 steps (31%) done
+Removing temporary output SRR5962882_k11/bcalm.unitigs.fa.
+Select jobs to execute...
+
+[Wed Feb  1 12:14:10 2023]
+rule bcalm_catlas_prepare_input:
+    input: SRR5962882_k11/bcalm.unitigs.predb, SRR5962882_k11/bcalm.unitigs.pickle
+    output: SRR5962882_k11/cdbg.gxt, SRR5962882_k11/contigs.info.csv, SRR5962882_k11/contigs.sig, SRR5962882_k11/bcalm.unitigs.db
+    jobid: 2
+    reason: Missing output files: SRR5962882_k11/cdbg.gxt, SRR5962882_k11/contigs.info.csv, SRR5962882_k11/bcalm.unitigs.db; Input files updated by another job: SRR5962882_k11/bcalm.unitigs.pickle, SRR5962882_k11/bcalm.unitigs.predb
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 12:15:49 2023]
+Finished job 2.
+5 of 13 steps (38%) done
+Select jobs to execute...
+
+[Wed Feb  1 12:15:49 2023]
+rule make_contigs_kmer_index:
+    input: SRR5962882_k11/bcalm.unitigs.db
+    output: SRR5962882_k11/contigs.mphf, SRR5962882_k11/contigs.indices, SRR5962882_k11/contigs.sizes
+    jobid: 8
+    reason: Missing output files: SRR5962882_k11/contigs.mphf, SRR5962882_k11/contigs.indices; Input files updated by another job: SRR5962882_k11/bcalm.unitigs.db
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 12:16:21 2023]
+Finished job 8.
+6 of 13 steps (46%) done
+Select jobs to execute...
+
+[Wed Feb  1 12:16:21 2023]
+rule index_reads:
+    input: SRR5962882/reads.bgz, SRR5962882_k11/contigs.mphf, SRR5962882_k11/contigs.indices
+    output: SRR5962882_k11/reads.bgz.index
+    jobid: 12
+    reason: Missing output files: SRR5962882_k11/reads.bgz.index; Input files updated by another job: SRR5962882_k11/contigs.mphf, SRR5962882/reads.bgz, SRR5962882_k11/contigs.indices
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-02-01T113520.391854.snakemake.log

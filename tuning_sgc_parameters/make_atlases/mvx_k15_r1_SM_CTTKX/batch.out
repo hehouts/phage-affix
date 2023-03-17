@@ -1,0 +1,26 @@
+==========================================
+SLURM_JOB_ID = 60642189
+SLURM_NODELIST = bm10
+==========================================
+Name                : sgc
+User                : hehouts
+Account             : ctbrowngrp
+Partition           : bmm
+Nodes               : bm10
+Cores               : 8
+GPUs                : 0
+State               : FAILED
+ExitCode            : 1:0
+Submit              : 2023-01-31T21:48:33
+Start               : 2023-02-01T01:21:28
+End                 : 2023-02-01T01:21:37
+Waited              : 03:32:55
+Reserved walltime   : 20:00:00
+Used walltime       : 00:00:09
+Used CPU time       : 00:00:00
+% User (Computation): 69.04%
+% System (I/O)      :  0.00%
+Mem reserved        : 70G
+Max Mem used        : 0.00  (bm10)
+Max Disk Write      : 0.00  (bm10)
+Max Disk Read       : 0.00  (bm10)

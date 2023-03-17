@@ -1,0 +1,20 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_31       -          Shikimate_DH         PF01488.20    0.0002   12.5   0.3   0.00048   11.3   0.3   1.7   1   1   0   1   1   1   1 # 22637 # 23239 # 1 # ID=1_31;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.405
+uvig_409809_28       -          Sigma70_r4           PF04545.16   5.7e-07   20.2   0.1     1e-06   19.4   0.1   1.4   1   0   0   1   1   1   1 # 20505 # 20963 # -1 # ID=1_28;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.397
+uvig_409809_2        -          Sigma70_r4           PF04545.16   1.1e-05   16.1   0.0   3.4e-05   14.5   0.0   1.8   2   0   0   2   2   2   1 # 405 # 1106 # 1 # ID=1_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.444
+uvig_409809_2        -          Sigma70_r4_2         PF08281.12   5.3e-07   20.4   0.0   3.5e-06   17.8   0.0   2.1   2   0   0   2   2   2   1 # 405 # 1106 # 1 # ID=1_2;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.444
+uvig_409809_28       -          Sigma70_r4_2         PF08281.12   3.1e-06   17.9   0.1     7e-06   16.8   0.1   1.7   1   1   0   1   1   1   1 # 20505 # 20963 # -1 # ID=1_28;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.397
+uvig_409809_18       -          Sipho_tail           PF05709.11   3.6e-08   24.1   0.8     9e-08   22.8   0.8   1.6   1   1   0   1   1   1   1 # 13614 # 14432 # 1 # ID=1_18;partial=00;start_type=ATG;rbs_motif=GGAG/GAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.358
+uvig_409809_3        -          Terminase_6          PF03237.15   4.3e-11   33.9   0.0   7.3e-11   33.1   0.0   1.3   1   0   0   1   1   1   1 # 1103 # 2377 # 1 # ID=1_3;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.391
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/12.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/12.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/12.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:25 2023
+# [ok]

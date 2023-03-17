@@ -1,0 +1,18 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_31       -          K18347               -            6.5e-40  128.0   0.1   1.4e-39  126.9   0.1   1.6   1   1   0   1   1   1   1 # 22637 # 23239 # 1 # ID=1_31;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.405
+uvig_409809_24       -          K19084               -            7.2e-05   12.6   1.5   7.8e-05   12.4   1.5   1.0   1   0   0   1   1   1   1 # 18062 # 18373 # 1 # ID=1_24;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.429
+uvig_409809_8        -          K19189               -            3.7e-05   13.8   0.0   4.9e-05   13.4   0.0   1.1   1   0   0   1   1   1   1 # 6376 # 6969 # 1 # ID=1_8;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.421
+uvig_409809_29       -          K19418               -            1.4e-13   41.0  25.0   8.5e-07   18.6   6.3   3.6   1   1   2   3   3   3   3 # 21182 # 22525 # 1 # ID=1_29;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.436
+uvig_409809_26       -          K19575               -            9.1e-05   13.4   0.2    0.0001   13.2   0.2   1.0   1   0   0   1   1   1   1 # 18740 # 18916 # 1 # ID=1_26;partial=00;start_type=ATG;rbs_motif=AGGAG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.441
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/36.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/36.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/36.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:30 2023
+# [ok]

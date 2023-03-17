@@ -1,0 +1,1 @@
+['/home/hehouts/spacegraphcats/spacegraphcats/search/query_by_sequence.py', 'SRR5962882_k21', 'SRR5962882_k21_r1', 'SRR5962882_k21_r1_search_oh0', '--query', '/home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa', '-k', '21', '--contigs-db', 'SRR5962882_k21/bcalm.unitigs.db']

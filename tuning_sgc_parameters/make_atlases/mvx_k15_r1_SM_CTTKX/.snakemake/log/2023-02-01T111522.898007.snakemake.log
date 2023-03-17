@@ -1,0 +1,196 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count    min threads    max threads
+---------------------------  -------  -------------  -------------
+bcalm_catlas_prepare_input         1              1              1
+bcalm_catlas_sort                  1              1              1
+bcalm_cdbg                         1              1              1
+bcalm_cdbg_inpfiles                1              1              1
+build_catlas                       1              1              1
+extract_contigs                    1              1              1
+extract_contigs_single_file        1              1              1
+extract_reads                      1              1              1
+extract_reads_single_file          1              1              1
+index_reads                        1              1              1
+make_contigs_kmer_index            1              1              1
+reads_bgzf                         1              1              1
+search                             1              1              1
+total                             13              1              1
+
+Select jobs to execute...
+
+[Wed Feb  1 11:15:23 2023]
+rule reads_bgzf:
+    input: /home/hehouts/phage_affix/data/viromes/SM_CTTKX.abundtrim.fq.gz
+    output: SM_CTTKX/reads.bgz
+    jobid: 11
+    reason: Missing output files: SM_CTTKX/reads.bgz
+    wildcards: catlas_base=SM_CTTKX
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:16:18 2023]
+Finished job 11.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:16:18 2023]
+rule bcalm_cdbg_inpfiles:
+    input: /home/hehouts/phage_affix/data/viromes/SM_CTTKX.abundtrim.fq.gz
+    output: SM_CTTKX_k15/bcalm.inputlist.txt
+    jobid: 5
+    reason: Missing output files: SM_CTTKX_k15/bcalm.inputlist.txt
+    wildcards: cdbg_dir=SM_CTTKX_k15
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:16:19 2023]
+Finished job 5.
+2 of 13 steps (15%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:16:19 2023]
+rule bcalm_cdbg:
+    input: SM_CTTKX_k15/bcalm.inputlist.txt
+    output: SM_CTTKX_k15/bcalm.unitigs.fa
+    log: SM_CTTKX_k15/bcalm.log.txt
+    jobid: 4
+    reason: Missing output files: SM_CTTKX_k15/bcalm.unitigs.fa; Input files updated by another job: SM_CTTKX_k15/bcalm.inputlist.txt
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:17:04 2023]
+Finished job 4.
+3 of 13 steps (23%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:17:04 2023]
+rule bcalm_catlas_sort:
+    input: SM_CTTKX_k15/bcalm.unitigs.fa
+    output: SM_CTTKX_k15/bcalm.unitigs.predb, SM_CTTKX_k15/bcalm.unitigs.pickle, SM_CTTKX_k15/bcalm.unitigs.fa.sig
+    jobid: 3
+    reason: Missing output files: SM_CTTKX_k15/bcalm.unitigs.predb, SM_CTTKX_k15/bcalm.unitigs.pickle; Input files updated by another job: SM_CTTKX_k15/bcalm.unitigs.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:17:46 2023]
+Finished job 3.
+4 of 13 steps (31%) done
+Removing temporary output SM_CTTKX_k15/bcalm.unitigs.fa.
+Select jobs to execute...
+
+[Wed Feb  1 11:17:46 2023]
+rule bcalm_catlas_prepare_input:
+    input: SM_CTTKX_k15/bcalm.unitigs.predb, SM_CTTKX_k15/bcalm.unitigs.pickle
+    output: SM_CTTKX_k15/cdbg.gxt, SM_CTTKX_k15/contigs.info.csv, SM_CTTKX_k15/contigs.sig, SM_CTTKX_k15/bcalm.unitigs.db
+    jobid: 2
+    reason: Missing output files: SM_CTTKX_k15/bcalm.unitigs.db, SM_CTTKX_k15/cdbg.gxt, SM_CTTKX_k15/contigs.info.csv; Input files updated by another job: SM_CTTKX_k15/bcalm.unitigs.predb, SM_CTTKX_k15/bcalm.unitigs.pickle
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:17:57 2023]
+Finished job 2.
+5 of 13 steps (38%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:17:57 2023]
+rule make_contigs_kmer_index:
+    input: SM_CTTKX_k15/bcalm.unitigs.db
+    output: SM_CTTKX_k15/contigs.mphf, SM_CTTKX_k15/contigs.indices, SM_CTTKX_k15/contigs.sizes
+    jobid: 8
+    reason: Missing output files: SM_CTTKX_k15/contigs.mphf, SM_CTTKX_k15/contigs.indices; Input files updated by another job: SM_CTTKX_k15/bcalm.unitigs.db
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:18:17 2023]
+Finished job 8.
+6 of 13 steps (46%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:18:17 2023]
+rule index_reads:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k15/contigs.mphf, SM_CTTKX_k15/contigs.indices
+    output: SM_CTTKX_k15/reads.bgz.index
+    jobid: 12
+    reason: Missing output files: SM_CTTKX_k15/reads.bgz.index; Input files updated by another job: SM_CTTKX_k15/contigs.mphf, SM_CTTKX/reads.bgz, SM_CTTKX_k15/contigs.indices
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:25:32 2023]
+Finished job 12.
+7 of 13 steps (54%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:25:32 2023]
+rule build_catlas:
+    input: SM_CTTKX_k15/cdbg.gxt
+    output: SM_CTTKX_k15_r1/first_doms.txt, SM_CTTKX_k15_r1/catlas.csv, SM_CTTKX_k15_r1/commands.log
+    jobid: 7
+    reason: Missing output files: SM_CTTKX_k15_r1/catlas.csv, SM_CTTKX_k15_r1/first_doms.txt; Input files updated by another job: SM_CTTKX_k15/cdbg.gxt
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:26:14 2023]
+Finished job 7.
+8 of 13 steps (62%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:26:14 2023]
+rule search:
+    input: /home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa, SM_CTTKX_k15_r1/first_doms.txt, SM_CTTKX_k15_r1/catlas.csv, SM_CTTKX_k15/contigs.mphf, SM_CTTKX_k15/contigs.indices, SM_CTTKX_k15/contigs.info.csv, SM_CTTKX_k15/bcalm.unitigs.db
+    output: SM_CTTKX_k15_r1_search_oh0/results.csv, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.contigs.sig, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.frontier.txt.gz
+    jobid: 6
+    reason: Missing output files: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz; Input files updated by another job: SM_CTTKX_k15_r1/catlas.csv, SM_CTTKX_k15/contigs.indices, SM_CTTKX_k15_r1/first_doms.txt, SM_CTTKX_k15/contigs.mphf, SM_CTTKX_k15/bcalm.unitigs.db, SM_CTTKX_k15/contigs.info.csv
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:26:20 2023]
+Finished job 6.
+9 of 13 steps (69%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:26:20 2023]
+rule extract_contigs_single_file:
+    input: SM_CTTKX_k15/bcalm.unitigs.db, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz
+    jobid: 1
+    reason: Missing output files: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz; Input files updated by another job: SM_CTTKX_k15/bcalm.unitigs.db, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_409809.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:26:22 2023]
+Finished job 1.
+10 of 13 steps (77%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:26:22 2023]
+rule extract_reads_single_file:
+    input: SM_CTTKX/reads.bgz, SM_CTTKX_k15/reads.bgz.index, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    output: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    jobid: 10
+    reason: Missing output files: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz; Input files updated by another job: SM_CTTKX_k15/reads.bgz.index, SM_CTTKX/reads.bgz, SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    wildcards: queryname=uvig_409809.fa
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:26:44 2023]
+Finished job 10.
+11 of 13 steps (85%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:26:44 2023]
+localrule extract_reads:
+    input: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    jobid: 9
+    reason: Input files updated by another job: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:26:44 2023]
+Finished job 9.
+12 of 13 steps (92%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:26:44 2023]
+localrule extract_contigs:
+    input: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz
+    jobid: 0
+    reason: Input files updated by another job: SM_CTTKX_k15_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:26:44 2023]
+Finished job 0.
+13 of 13 steps (100%) done
+Complete log: .snakemake/log/2023-02-01T111522.898007.snakemake.log

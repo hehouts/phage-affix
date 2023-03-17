@@ -1,0 +1,18 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+uvig_409809_28       -          TIGR02702            TIGR02702    2.4e-05   15.1   0.0   9.6e-05   13.1   0.0   1.8   2   0   0   2   2   2   1 # 20505 # 20963 # -1 # ID=1_28;partial=00;start_type=ATG;rbs_motif=AGGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.397
+uvig_409809_29       -          TIGR02900            TIGR02900    7.3e-12   35.6  34.8   2.8e-09   27.1   8.7   3.5   1   1   1   2   2   2   2 # 21182 # 22525 # 1 # ID=1_29;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.436
+uvig_409809_31       -          TIGR02964            TIGR02964     0.0002   11.9   0.0   0.00024   11.7   0.0   1.3   1   0   0   1   1   1   1 # 22637 # 23239 # 1 # ID=1_31;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.405
+uvig_409809_8        -          TIGR03545            TIGR03545      5e-07   19.5   4.1     5e-07   19.5   4.1   1.2   1   0   0   1   1   1   1 # 6376 # 6969 # 1 # ID=1_8;partial=00;start_type=ATG;rbs_motif=GGAGG;rbs_spacer=5-10bp;genetic_code=11;gc_cont=0.421
+uvig_409809_31       -          TIGR03570            TIGR03570    0.00012   12.7   0.0   0.00016   12.3   0.0   1.3   1   0   0   1   1   1   1 # 22637 # 23239 # 1 # ID=1_31;partial=00;start_type=ATG;rbs_motif=None;rbs_spacer=None;genetic_code=11;gc_cont=0.405
+#
+# Program:         hmmsearch
+# Version:         3.3.2 (Nov 2020)
+# Pipeline mode:   SEARCH
+# Query file:      /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/22.hmm
+# Target file:     checkv_nbhds/tmp/proteins.faa
+# Option settings: hmmsearch -o /dev/null --tblout checkv_nbhds/tmp/hmmsearch/22.hmmout --noali -E 10 --cpu 0 /group/ctbrowngrp/virus-references/checkv-db-v1.5/hmm_db/checkv_hmms/22.hmm checkv_nbhds/tmp/proteins.faa 
+# Current dir:     /home/hehouts/phage_affix/optimizing_criteria
+# Date:            Mon Feb  6 15:29:20 2023
+# [ok]

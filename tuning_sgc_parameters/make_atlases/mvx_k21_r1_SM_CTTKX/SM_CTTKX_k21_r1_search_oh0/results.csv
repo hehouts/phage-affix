@@ -1,0 +1,6 @@
+query,containment,similarity,bp,contigs,ksize,num_query_kmers,best_containment,cdbg_min_overhead,catlas_min_overhead,catlas_name
+/home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa,0.0,0.0,0,0,21,24444,0.0,0,0,SM_CTTKX_k21_r1
+/home/hehouts/phage_affix/data/ref_genomes/uvig_430148.fa,0.0,0.0,0,0,21,33173,0.0,0,0,SM_CTTKX_k21_r1
+/home/hehouts/phage_affix/data/ref_genomes/uvig_477575.fa,0.0,0.0,180,2,21,24834,0.001973101393251188,0.65,0.65,SM_CTTKX_k21_r1
+/home/hehouts/phage_affix/data/ref_genomes/uvig_560376.fa,0.0,0.0,109,3,21,15193,0.0009214769959849931,0.7142857142857143,0.7142857142857143,SM_CTTKX_k21_r1
+/home/hehouts/phage_affix/data/ref_genomes/ivig_3504.fa,0.0,0.0,0,0,21,12702,0.0,0,0,SM_CTTKX_k21_r1

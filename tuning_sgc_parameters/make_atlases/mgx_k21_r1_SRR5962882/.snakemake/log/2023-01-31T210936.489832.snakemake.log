@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                          count    min threads    max threads
+-------------------------  -------  -------------  -------------
+extract_reads                    1              1              1
+extract_reads_single_file        1              1              1
+total                            2              1              1
+
+Select jobs to execute...
+
+[Tue Jan 31 21:09:36 2023]
+rule extract_reads_single_file:
+    input: SRR5962882/reads.bgz, SRR5962882_k21/reads.bgz.index, SRR5962882_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.txt.gz
+    output: SRR5962882_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    jobid: 1
+    reason: Missing output files: SRR5962882_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    wildcards: queryname=uvig_409809.fa
+    resources: tmpdir=/tmp
+
+[Tue Jan 31 21:10:09 2023]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Tue Jan 31 21:10:09 2023]
+localrule extract_reads:
+    input: SRR5962882_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    jobid: 0
+    reason: Input files updated by another job: SRR5962882_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.reads.gz
+    resources: tmpdir=/tmp
+
+[Tue Jan 31 21:10:09 2023]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2023-01-31T210936.489832.snakemake.log

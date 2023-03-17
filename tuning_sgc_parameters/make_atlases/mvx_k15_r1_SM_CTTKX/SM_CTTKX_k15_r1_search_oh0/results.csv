@@ -1,0 +1,2 @@
+query,containment,similarity,bp,contigs,ksize,num_query_kmers,best_containment,cdbg_min_overhead,catlas_min_overhead,catlas_name
+/home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa,0.0,0.0,24208,924,15,24447,0.018407166523499816,0.9292452830188679,0.9600780695528743,SM_CTTKX_k15_r1

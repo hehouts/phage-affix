@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job                            count    min threads    max threads
+---------------------------  -------  -------------  -------------
+bcalm_catlas_prepare_input         1              1              1
+bcalm_catlas_sort                  1              1              1
+bcalm_cdbg                         1              1              1
+bcalm_cdbg_inpfiles                1              1              1
+build_catlas                       1              1              1
+extract_contigs                    1              1              1
+extract_contigs_single_file        1              1              1
+extract_reads                      1              1              1
+extract_reads_single_file          1              1              1
+index_reads                        1              1              1
+make_contigs_kmer_index            1              1              1
+reads_bgzf                         1              1              1
+search                             1              1              1
+total                             13              1              1
+
+Select jobs to execute...
+
+[Wed Feb  1 11:19:54 2023]
+rule reads_bgzf:
+    input: /home/hehouts/phage_affix/data/viromes/SM_CTTKX.abundtrim.fq.gz
+    output: SM_CTTKX/reads.bgz
+    jobid: 11
+    reason: Missing output files: SM_CTTKX/reads.bgz
+    wildcards: catlas_base=SM_CTTKX
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:20:59 2023]
+Finished job 11.
+1 of 13 steps (8%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:20:59 2023]
+rule bcalm_cdbg_inpfiles:
+    input: /home/hehouts/phage_affix/data/viromes/SM_CTTKX.abundtrim.fq.gz
+    output: SM_CTTKX_k9/bcalm.inputlist.txt
+    jobid: 5
+    reason: Missing output files: SM_CTTKX_k9/bcalm.inputlist.txt
+    wildcards: cdbg_dir=SM_CTTKX_k9
+    resources: tmpdir=/tmp
+
+[Wed Feb  1 11:21:00 2023]
+Finished job 5.
+2 of 13 steps (15%) done
+Select jobs to execute...
+
+[Wed Feb  1 11:21:00 2023]
+rule bcalm_cdbg:
+    input: SM_CTTKX_k9/bcalm.inputlist.txt
+    output: SM_CTTKX_k9/bcalm.unitigs.fa
+    log: SM_CTTKX_k9/bcalm.log.txt
+    jobid: 4
+    reason: Missing output files: SM_CTTKX_k9/bcalm.unitigs.fa; Input files updated by another job: SM_CTTKX_k9/bcalm.inputlist.txt
+    resources: tmpdir=/tmp
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-02-01T111953.249774.snakemake.log

@@ -1,0 +1,2 @@
+contig_id	contig_length	viral_length	aai_expected_length	aai_completeness	aai_confidence	aai_error	aai_num_hits	aai_top_hit	aai_id	aai_af	hmm_completeness_lower	hmm_completeness_upper	hmm_num_hits	kmer_freq
+uvig_409809	24464	19979	37590.62618450048	53.14888850731043	medium	5.99065324568611	2	CheckV-033722	54.87	49.28	36.33693549463319	59.84517663834268	11	1.0

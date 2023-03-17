@@ -1,0 +1,3 @@
+@HD	VN:1.4	SO:unsorted
+@SQ	SN:uvig_409809	LN:24464
+@PG	ID:BBMap	PN:BBMap	VN:39.01	CL:java -ea -Xmx573889m -Xms573889m align2.BBMap build=1 overwrite=true fastareadlen=500 in=../make_atlases/mvx_k21_r1_SM_CTTKX/SM_CTTKX_k21_r1_search_oh0/uvig_409809.fa.cdbg_ids.contigs.fa.gz out=mapped/SM_CTTKX_k21_r1_uvig_409809_mapped.sam ref=../../data/ref_genomes/uvig_409809.fa

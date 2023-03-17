@@ -1,0 +1,1 @@
+diamond blastp --outfmt 6 --evalue 1e-5 --query-cover 50 --subject-cover 50 -k 10000 --query checkv_nbhds/tmp/proteins.faa --db /group/ctbrowngrp/virus-references/checkv-db-v1.5/genome_db/checkv_reps.dmnd --threads 16 > checkv_nbhds/tmp/diamond.tsv 2> checkv_nbhds/tmp/diamond.tsv.log

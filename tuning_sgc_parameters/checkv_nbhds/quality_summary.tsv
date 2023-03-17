@@ -1,0 +1,2 @@
+contig_id	contig_length	provirus	proviral_length	gene_count	viral_genes	host_genes	checkv_quality	miuvig_quality	completeness	completeness_method	contamination	kmer_freq	warnings
+uvig_409809	24464	Yes	19979	32	11	4	Medium-quality	Genome-fragment	53.15	AAI-based (medium-confidence)	18.33	1.0	

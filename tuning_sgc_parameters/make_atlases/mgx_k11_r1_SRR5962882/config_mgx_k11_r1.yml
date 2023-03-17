@@ -1,0 +1,7 @@
+catlas_base: 'SRR5962882'
+input_sequences:
+- /home/hehouts/phage_affix/data/metagenomes/SRR5962882.abundtrim.fq.gz
+ksize: 11
+radius: 1
+search:
+- /home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa

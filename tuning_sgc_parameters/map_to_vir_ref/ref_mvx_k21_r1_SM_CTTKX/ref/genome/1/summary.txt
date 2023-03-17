@@ -1,0 +1,13 @@
+#Summary
+#Generated on	Mon Feb 06 13:10:58 PST 2023
+#Version	5
+chroms	1
+bases	40464
+defined	24464
+undefined	16000
+contigs	1
+scaffolds	1
+interpad	300
+source	/home/hehouts/phage_affix/data/ref_genomes/uvig_409809.fa
+bytes	24522
+last modified	1664585421139
