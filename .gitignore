@@ -90,7 +90,7 @@ reads.bgz.labels
 
 ### Snakemake
 
-#*.snakemake/*
+*/*.snakemake/*
 
 
 ### Misc
