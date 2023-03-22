@@ -22,7 +22,7 @@ options(scipen = 999)
 
 ## load data
 ```{r}
-duos_og <- read_csv("Desktop/duos.csv", show_col_types = FALSE)
+duos_og <- read_csv("../duos.csv", show_col_types = FALSE)
 duos <- duos_og
 duos <- unite(duos, duo, c("pr","hr"), sep = "_", remove = FALSE, na.rm = FALSE)
 ```
@@ -49,6 +49,9 @@ duos %>%
       y= "number of shared hashes",
       fill= "Phage Reference Genome")+
   coord_flip()
+```
+```{r}
+getwd()
 ```
 
 ### containment
@@ -135,99 +138,3 @@ plot_pr_in_hn
  Note: look at pRef in hRef, then pN in hRef - 
   most go down, but one duo, uvig_409809_GCA_003470775, slightly rises.
 Meaning 
-
-
-```{r}
-
-p1 <- plot_pr_in_hr
-p2 <- plot_pn_in_hr
-p3 <- plot_pn_in_hn
-p4 <- plot_pr_in_hn
-
-ggsave(plot_pr_in_hr, 
-       plot = plot_pr_in_hr, device = NULL, path = "~/projects/dynamic-duos/sgc_containment_figs/")
-
-ggsave(plot_pn_in_hr, 
-       plot = plot_pn_in_hr,
-       device = NULL,
-       path = "~/projects/dynamic-duos/sgc_containment_figs/")
-
-ggsave(plot_pn_in_hn, 
-       plot = plot_pn_in_hn, 
-       device = NULL,
-       path = "~/projects/dynamic-duos/sgc_containment_figs/")
-
-ggsave(plot_pr_in_hn, 
-       plot = plot_pr_in_hn, 
-       device = NULL,
-       path = "~/projects/dynamic-duos/sgc_containment_figs/")
-
-#ggsave(
-#  plot_pr_in_hr,
-#  plot = plot_pr_in_hr,
-#  device = NULL,
-#  path = "~/projects/dynamic-duos/",
-#  scale = 1,
-#  width = NA,
-#  height = NA,
-#  units = c("in", "cm", "mm", "px"),
-#  dpi = 300,
-#  limitsize = TRUE,
-#  bg = NULL,
-#)
-```
-
-
-## combo plot (none of this works lol)
-```{r}
-
-p1 <- plot_pr_in_hr
-p2 <- plot_pn_in_hr
-p3 <- plot_pn_in_hn
-p4 <- plot_pr_in_hn
-
-grid.arrange(p1, p2, p3, p4, ncol = 4, nrow = 1, respect=TRUE)
-
-
-p1
-p2
-p3
-p4
-
-
-ggarrange(p1, p2, p3, p4, ncol = 1, nrow = 4)grid.arrange(p, p, respect=TRUE, heights=c(1,2)) # relative heights
-
-
-
-
-
-pushViewport(viewport(layout = grid.layout(2, 2)))
-vplayout <- function(x, y) viewport(layout.pos.row = x, layout.pos.col = y)
-print(p1, vp = vplayout(1, 1:2))
-print(p2, vp = vplayout(2, 1))
-print(p3, vp = vplayout(2, 2))
-
-#grid.newpage()
-#grid.draw(g)
-
-
-
-```
-
-## Observations
-
-- why is 
-## Chuck
-
-```{r}
-duos
-
-```
-```{r}
-tabyl(duos$cmt_hr_in_pr)
-
-summarise(duos %>% 
-  group_by(pr,hr)
-  )
-```
-
