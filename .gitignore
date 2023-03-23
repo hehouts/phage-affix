@@ -3,6 +3,7 @@
 .DS_Store
 data
 raw_data
+.tar
 
 
 ### Common data files
