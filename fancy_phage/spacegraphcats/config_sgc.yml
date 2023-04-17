@@ -1,0 +1,23 @@
+#  SGC
+#    Command:
+#        conda activate grist2
+#        cd ~/phage_affix/fancy_phage/spacegraphcats/
+#        python -m spacegraphcats run config_sgc.yml extract_contigs extract_reads --nolock
+#    srun:
+#        srun -p bmm -J sgc -t 6:00:00 --mem=70gb -c 2 --pty bash
+
+
+catlas_base: 'SM_CTTKX'
+input_sequences:
+#- ~/phage_affix/fancy_phage/grist/outputs.gather_virome/trim/SM_CTTKX.trim.fq.gz
+- ../grist/outputs.gather_virome/trim/SM_CTTKX.trim.fq.gz
+ksize: 21
+radius: 1
+#experiment: fancy_phage_1
+
+search:
+- ../../data/ref_genomes/ivig_3504.fa
+- ../../data/ref_genomes/uvig_409809.fa
+- ../../data/ref_genomes/uvig_430148.fa
+- ../../data/ref_genomes/uvig_477575.fa
+- ../../data/ref_genomes/uvig_560376.fa

@@ -1,0 +1,34 @@
+#  Grist
+#    Command:
+#        cd ~/phage_affix/fancy_phage/grist/ 
+#        genome-grist run config_grist.yml summarize_gather --keep-going
+#    note: will fail on last steps, but gather should still complete. 
+
+
+
+### It's fine that 'true' isnt highlighted, it's still working
+prevent_sra_download: true
+
+samples:
+- SM_CTTKX
+
+outdir: outputs.gather_virome
+
+
+sourmash_database_ksize: 21
+sourmash_scaled: 100
+sourmash_database_threshold_bp: 100 # note: sourmash default is 50kb, phage stuff usually uses 10kb cutoff, but leave at 100 bbc its pretty fast anyways
+sourmash_compute_ksizes: 
+#- 17
+- 21
+#- 31
+
+
+metagenome_trim_memory: 30e9
+prefetch_memory: 30e9
+
+
+sourmash_databases:
+- /group/ctbrowngrp/virus-references/gut-phage-db/GPD_sequences.zip
+taxonomies:
+- /group/ctbrowngrp/virus-references/gut-phage-db/GPD_metadata.tsv
