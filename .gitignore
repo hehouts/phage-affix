@@ -1,7 +1,3 @@
-.DS_Store
-
-.snakemake/
-data/*
 ### General
 
 .DS_Store
@@ -87,15 +83,9 @@ reads.bgz.labels
 *.response.txt.gz
 
 *.cdbg_ids.txt.gz
-<<<<<<< HEAD
 *.frontier.txt.gz
-=======
-
-*.frontier.txt.gz
-
 
 ### Snakemake
 .snakemake
 
 ### Misc
->>>>>>> 6f75abad0d0ec11a5c920e0f886631e4ea52429c
