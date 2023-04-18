@@ -1,0 +1,92 @@
+---
+title: "fancy_phage"
+author: "Hannah E. Houts"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r libs}
+library(tidyverse)
+```
+
+
+# Fancy phage
+
+### sourmash gather results
+gathering a ihmp-ibd virome against the gutphage database, to select a few phage of interest. 
+
+It might be nice to select 5 phage that are abundant, 5 that are high-medium, and 5 that are about the middle.
+
+```{bash}
+#gunzip -c ../grist/outputs.gather_virome/gather/SM_CTTKX.gather.csv.gz
+```
+
+
+```{r}
+gather_og <- read_csv("../grist/outputs.gather_virome/gather/SM_CTTKX.gather.csv")
+gather_og
+```
+
+
+```{r}
+gather <- gather_og %>%
+  separate(name, sep = "\t",into = c("name","database_info"),remove = T) %>%
+  relocate(name, f_match, average_abund)
+gather
+
+```
+
+## Top 15 phage
+
+but top 15 what.. f_match, or f_match_orig?
+
+but what is more interesting?
+We're heading in the direction of seeing if there is a better match of the phage than is represented in the reference genome. 
+
+So does it make more sense to look at making a "bespoke" version of a phage that is highly abundant, or very closely matching something in the metavirome?
+
+The former is more useful, the latter may be easier. Lets start with the former
+- 15 highest abundance 
+
+
+```{r}
+#high_fmatch <- gather %>% 
+#  slice_max(f_match,n = 5)
+#high_fmatch
+```
+
+
+```{r}
+high_abund <- gather %>% 
+  slice_max(average_abund, n=15) %>% 
+  select(name)
+high_abund
+
+```
+```
+ivig_358				
+uvig_505586				
+uvig_264832				
+uvig_225190				
+uvig_308517				
+uvig_389464				
+uvig_360436				
+uvig_110493				
+uvig_52126				
+uvig_245649
+uvig_516991				
+uvig_219649				
+uvig_143949				
+uvig_96206				
+uvig_221329
+
+```
+
+
+```{r}
+as.vector(high_abund$name)
+```
+

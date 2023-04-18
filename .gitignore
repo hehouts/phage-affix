@@ -88,4 +88,8 @@ reads.bgz.labels
 ### Snakemake
 .snakemake
 
+
+### R
+
+.Rhistory
 ### Misc
