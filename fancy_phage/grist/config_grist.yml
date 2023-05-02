@@ -3,6 +3,10 @@
 #        cd ~/phage_affix/fancy_phage/grist/ 
 #        genome-grist run config_grist.yml summarize_gather --keep-going
 #    note: will fail on last steps, but gather should still complete. 
+#
+# try to get spacegraphcats config:
+#         genome-grist run config_grist.yml make_sgc_conf --keep-going  
+
 
 
 
