@@ -11,9 +11,10 @@
 
 #    █ █ █ Globs and Libs █ █ █ 
 PHAGES = ['ivig_358', 'uvig_505586', 'uvig_264832', 'uvig_225190', 'uvig_308517', 'uvig_389464', 'uvig_360436', 'uvig_110493', 'uvig_52126', 'uvig_245649', 'uvig_516991', 'uvig_219649', 'uvig_143949', 'uvig_96206', 'uvig_221329']
-#from sourmash import load_one_signature
-#import pandas as pd
-#import os
+
+from sourmash import load_one_signature
+import pandas as pd
+import os
 
 
 #    ████████████████████████████████████████████████████████████████████████████████████████████████████
@@ -28,16 +29,19 @@ PHAGES = ['ivig_358', 'uvig_505586', 'uvig_264832', 'uvig_225190', 'uvig_308517'
 
 rule all: 
     input:
-#       █ █ █ get_phage_ref_genomes █ █ █
+#      █ █ █ get_phage_ref_genomes █ █ █
 #     expand("data/ref_genomes/{phage}.fa", phage=PHAGES),
-#       █ █ █ make_catlas █ █ █
+#      █ █ █ make_catlas █ █ █
 #        "spacegraphcats/SM_CTTKX_k21_r1/catlas.csv",
-#       █ █ █ make_nbhds █ █ █ 
+#      █ █ █ make_nbhds █ █ █ 
 #        expand("spacegraphcats/SM_CTTKX_k21_r1_search_oh0/{phage}.fa.cdbg_ids.contigs.fa.gz", phage=PHAGES)
-#        █ █ █ rule sketch_phage_nbhds_sigs █ █ █ 
-        expand("sigs/{phage}.SM_CTTKX_k21.fa.cdbg_ids.reads.sig", phage = PHAGES)
-
-
+#      █ █ █ rule sketch_phage_nbhds_sigs █ █ █ 
+#        expand("sigs/{phage}.SM_CTTKX_k21.fa.cdbg_ids.reads.sig", phage = PHAGES)
+#      █ █ █  sketch_phage_ref_sigs█ █ █ 
+#       expand("sigs/{phage}.fa.sig", phage = PHAGES)
+#     █ █ █  write_comp_table █ █ █  
+        "R/data/compare.csv"
+#        "compare.csv"
 
 #    ████████████████████████████████████████████████████████████████████████████████████████████████████
 #    
@@ -103,16 +107,67 @@ rule sketch_phage_nbhd_sigs:
 #    ════════════════════════════════════════════════════════════════════════════════════════════════════
 rule sketch_phage_ref_sigs:
     input:
-        "data/ref_genomes/{phage}.fa.cdbg_ids.reads.gz"
+        "data/ref_genomes/{phage}.fa"
 
     output:
-        "sigs/{phage}.SM_CTTKX_k21.fa.cdbg_ids.reads.sig"
+        "sigs/{phage}.fa.sig"
         
     shell:
         """
         sourmash sketch dna -p k=21,scaled=1 {input} -o {output} 
         """
 #    ════════════════════════════════════════════════════════════════════════════════════════════════════
+# ██████████ MAKE SIG COMPARISONS (GENERATE PY DICTS?) ██████████
+
+rule write_comp_table:
+    output:
+        "R/data/compare.csv"
+    input: 
+        expand("sigs/{phage}.fa.sig", phage = PHAGES),
+        expand("sigs/{phage}.SM_CTTKX_k21.fa.cdbg_ids.reads.sig",phage = PHAGES),
+    run:
+        comp_list = [] 
+#
+        for p in PHAGES:
+##### PHAGE REF
+            p_ref_file = 'sigs/'+ p +'.fa.sig'
+            p_ref_sig = load_one_signature(p_ref_file, ksize=21, select_moltype='DNA')
+            p_ref_hashset = set(p_ref_sig.minhash.hashes.keys())
+            p_ref_hshs = len(p_ref_hashset)
+##### PHAGE NBHD
+            p_n_file = 'sigs/'+ p + '.SM_CTTKX_k21.fa.cdbg_ids.reads.sig'
+            p_nbhd_sig = load_one_signature(p_n_file, ksize=21, select_moltype='DNA')
+            p_nbhd_hashset = set(p_nbhd_sig.minhash.hashes.keys())
+            pn_hshs = len(p_nbhd_hashset)
+#
+#
+            containment_ref_in_nbhd = p_ref_sig.contained_by(p_nbhd_sig)
+            containment_nbhd_in_ref = p_nbhd_sig.contained_by(p_ref_sig)
+#
+#
+            shared_hashes = len(p_ref_hashset & p_nbhd_hashset)
+#
+            hashes_in_ref = len(p_ref_hashset)
+            hashes_in_nbhd = len(p_nbhd_hashset)
+#
+            comp = { 
+                        'sample_id': 'SM_CTTKX',
+                        'sample_type': 'virome',
+                        'phage_reference':   p ,
+#
+                        'cont_ref_in_nbhd' : containment_ref_in_nbhd,
+                        'cont_nbhd_in_ref' : containment_nbhd_in_ref,
+#
+                        'shared_hashes' : shared_hashes,
+#
+                        'ref_num_hashes' : hashes_in_ref,
+                        'nbhd_num_hashes' : hashes_in_nbhd,
+                    }
+            comp_list.append(comp)
+            comp_df = pd.DataFrame.from_records(comp_list)
+            comp_df.to_csv(os.getcwd()+'/R/data/compare.csv', sep = ',', index=False) 
+#            comp_df.to_csv(os.getcwd()+'/compare.csv', sep = ',', index=False) 
+
 
 #    ════════════════════════════════════════════════════════════════════════════════════════════════════
 
