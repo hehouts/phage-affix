@@ -7,10 +7,17 @@
 #                                                                                                         
 #    ████████████████████████████████████████████████████████████████████████████████████████████████████
 
+#    █ █ █ Run notes
+#   this is garbage code, and must be handled as such:
+#   there needs to be a copy of config_sgc_{ksize}.yml for each ksize
+
+
 
 
 #    █ █ █ Globs and Libs █ █ █ 
 PHAGES = ['ivig_358', 'uvig_505586', 'uvig_264832', 'uvig_225190', 'uvig_308517', 'uvig_389464', 'uvig_360436', 'uvig_110493', 'uvig_52126', 'uvig_245649', 'uvig_516991', 'uvig_219649', 'uvig_143949', 'uvig_96206', 'uvig_221329']
+KSIZES = [21, 15, 11]
+RADII = [1, 2]
 
 from sourmash import load_one_signature
 import pandas as pd
@@ -32,15 +39,15 @@ rule all:
 #      █ █ █ get_phage_ref_genomes █ █ █
 #     expand("data/ref_genomes/{phage}.fa", phage=PHAGES),
 #      █ █ █ make_catlas █ █ █
-#        "spacegraphcats/SM_CTTKX_k21_r1/catlas.csv",
+        expand("spacegraphcats/k{ksize}_r{radius}/SM_CTTKX_k{ksize}_r{radius}/catlas.csv", ksize = KSIZES, radius = RADII),
 #      █ █ █ make_nbhds █ █ █ 
-#        expand("spacegraphcats/SM_CTTKX_k21_r1_search_oh0/{phage}.fa.cdbg_ids.contigs.fa.gz", phage=PHAGES)
+#        expand("spacegraphcats/SM_CTTKX_k{ksize}_r1_search_oh0/{phage}.fa.cdbg_ids.contigs.fa.gz", phage=PHAGES, ksize = KSIZES)
 #      █ █ █ rule sketch_phage_nbhds_sigs █ █ █ 
 #        expand("sigs/{phage}.SM_CTTKX_k21.fa.cdbg_ids.reads.sig", phage = PHAGES)
 #      █ █ █  sketch_phage_ref_sigs█ █ █ 
 #       expand("sigs/{phage}.fa.sig", phage = PHAGES)
 #     █ █ █  write_comp_table █ █ █  
-        "R/data/compare.csv"
+#        "R/data/compare.csv"
 #        "compare.csv"
 
 #    ████████████████████████████████████████████████████████████████████████████████████████████████████
@@ -68,28 +75,28 @@ rule get_phage_ref_genomes:
 rule make_catlas:
     input:
         phage_genome = expand("data/ref_genomes/{phage}.fa", phage=PHAGES),
-        sgc_config = "spacegraphcats/config_sgc.yml"
+        sgc_config = "spacegraphcats/k{ksize}_r{radius}/config_sgc_k{ksize}_r{radius}.yml"
     output: 
-        catlas = "spacegraphcats/SM_CTTKX_k21_r1/catlas.csv"
+        catlas = "spacegraphcats/k{ksize}_r{radius}/SM_CTTKX_k{ksize}_r{radius}/catlas.csv"
     shell:
         """
-        cd spacegraphcats/
-        python -m spacegraphcats run config_sgc.yml build --nolock
+        cd spacegraphcats/k{wildcards.ksize}_r{wildcards.radius}/
+        python -m spacegraphcats run config_sgc_k{wildcards.ksize}_r{wildcards.radius}.yml build --nolock
         cd ..
         """
 #    ════════════════════════════════════════════════════════════════════════════════════════════════════
 rule make_nbhds:
     input:
-        catlas = "spacegraphcats/SM_CTTKX_k21_r1/catlas.csv",
+        catlas = "spacegraphcats/SM_CTTKX_k{ksize}_r1/catlas.csv",
         phage_genome = expand("data/ref_genomes/{phage}.fa", phage=PHAGES),
-        sgc_config = ancient("spacegraphcats/config_sgc.yml"),
+        sgc_config = ancient("spacegraphcats/config_sgc_{ksize}.yml"),
 
     output: 
-        nbhds = "spacegraphcats/SM_CTTKX_k21_r1_search_oh0/{phage}.fa.cdbg_ids.contigs.fa.gz"
+        nbhds = "spacegraphcats/SM_CTTKX_k{ksize}_r1_search_oh0/{phage}.fa.cdbg_ids.contigs.fa.gz"
     shell:
         """
         cd spacegraphcats/
-        python -m spacegraphcats run config_sgc.yml extract_contigs extract_reads --nolock
+        python -m spacegraphcats run config_sgc{wildcards.ksize}.yml extract_contigs extract_reads --nolock
         cd ..
         """
 #    ════════════════════════════════════════════════════════════════════════════════════════════════════
@@ -133,12 +140,10 @@ rule write_comp_table:
             p_ref_file = 'sigs/'+ p +'.fa.sig'
             p_ref_sig = load_one_signature(p_ref_file, ksize=21, select_moltype='DNA')
             p_ref_hashset = set(p_ref_sig.minhash.hashes.keys())
-            p_ref_hshs = len(p_ref_hashset)
 ##### PHAGE NBHD
             p_n_file = 'sigs/'+ p + '.SM_CTTKX_k21.fa.cdbg_ids.reads.sig'
             p_nbhd_sig = load_one_signature(p_n_file, ksize=21, select_moltype='DNA')
             p_nbhd_hashset = set(p_nbhd_sig.minhash.hashes.keys())
-            pn_hshs = len(p_nbhd_hashset)
 #
 #
             containment_ref_in_nbhd = p_ref_sig.contained_by(p_nbhd_sig)
@@ -155,7 +160,7 @@ rule write_comp_table:
                         'sample_type': 'virome',
                         'phage_reference':   p ,
 #
-                        'cont_ref_in_nbhd' : containment_ref_in_nbhd,
+                        'ref_in_nbhd' : containment_ref_in_nbhd,
                         'cont_nbhd_in_ref' : containment_nbhd_in_ref,
 #
                         'shared_hashes' : shared_hashes,
