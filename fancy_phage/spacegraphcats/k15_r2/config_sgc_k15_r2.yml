@@ -1,0 +1,22 @@
+catlas_base: 'SM_CTTKX'
+input_sequences:
+- ../../grist/outputs.gather_virome/trim/SM_CTTKX.trim.fq.gz
+ksize: 15
+radius: 2
+
+search:
+- ../../data/ref_genomes/ivig_358.fa
+- ../../data/ref_genomes/uvig_505586.fa
+- ../../data/ref_genomes/uvig_264832.fa
+- ../../data/ref_genomes/uvig_225190.fa
+- ../../data/ref_genomes/uvig_308517.fa
+- ../../data/ref_genomes/uvig_389464.fa
+- ../../data/ref_genomes/uvig_360436.fa
+- ../../data/ref_genomes/uvig_110493.fa
+- ../../data/ref_genomes/uvig_52126.fa
+- ../../data/ref_genomes/uvig_245649.fa
+- ../../data/ref_genomes/uvig_516991.fa
+- ../../data/ref_genomes/uvig_219649.fa
+- ../../data/ref_genomes/uvig_143949.fa
+- ../../data/ref_genomes/uvig_96206.fa
+- ../../data/ref_genomes/uvig_221329.fa
