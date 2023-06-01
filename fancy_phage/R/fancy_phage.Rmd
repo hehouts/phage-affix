@@ -34,12 +34,13 @@ gather_og
 ```{r}
 gather <- gather_og %>%
   separate(name, sep = "\t",into = c("name","database_info"),remove = T) %>%
-  relocate(name, f_match, average_abund)
+  relocate(name, f_match, average_abund) %>% 
+  arrange(desc(f_match))
 gather
 
 ```
 
-## Top 15 phage
+### Top 15 phage
 
 but top 15 what.. f_match, or f_match_orig?
 
@@ -66,27 +67,131 @@ high_abund <- gather %>%
 high_abund
 
 ```
+
+fifteen_phage.txt - contains these names:
 ```
-ivig_358				
-uvig_505586				
-uvig_264832				
-uvig_225190				
-uvig_308517				
-uvig_389464				
-uvig_360436				
-uvig_110493				
-uvig_52126				
+ivig_358
+uvig_505586
+uvig_264832
+uvig_225190
+uvig_308517
+uvig_389464
+uvig_360436
+uvig_110493
+uvig_52126
 uvig_245649
-uvig_516991				
-uvig_219649				
-uvig_143949				
-uvig_96206				
+uvig_516991
+uvig_219649
+uvig_143949
+uvig_96206
 uvig_221329
+```
+
+For the snakefile:
+```
+PHAGES = ['ivig_358', 'uvig_505586', 'uvig_264832', 'uvig_225190', 'uvig_308517', 'uvig_389464', 'uvig_360436', 'uvig_110493', 'uvig_52126', 'uvig_245649', 'uvig_516991', 'uvig_219649', 'uvig_143949', 'uvig_96206', 'uvig_221329']
+
+```
+
+For the config:
+```
+- ../data/ref_genomes/ivig_358.fa
+- ../data/ref_genomes/uvig_505586.fa
+- ../data/ref_genomes/uvig_264832.fa
+- ../data/ref_genomes/uvig_225190.fa
+- ../data/ref_genomes/uvig_308517.fa
+- ../data/ref_genomes/uvig_389464.fa
+- ../data/ref_genomes/uvig_360436.fa
+- ../data/ref_genomes/uvig_110493.fa
+- ../data/ref_genomes/uvig_52126.fa
+- ../data/ref_genomes/uvig_245649.fa
+- ../data/ref_genomes/uvig_516991.fa
+- ../data/ref_genomes/uvig_219649.fa
+- ../data/ref_genomes/uvig_143949.fa
+- ../data/ref_genomes/uvig_96206.fa
+- ../data/ref_genomes/uvig_221329.fa
 
 ```
 
 
+### making plots
+
+
+
+
+## load libs
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(janitor)
+library(viridisLite)
+library(ggpubr)
+options(scipen = 999)
+```
+
+
+
+## load data
 ```{r}
-as.vector(high_abund$name)
+df <- read_csv("data/compare.csv", show_col_types = FALSE)
+df
 ```
+
+
+### shared hashes
+
+                        
+```{r}
+df %>% 
+  arrange(nbhd_num_hashes) %>% 
+#  filter(nbhd_num_hashes>=2000) %>% 
+  pivot_longer(c(shared_hashes,ref_num_hashes,nbhd_num_hashes), values_to = "hashes", names_to = "hash_type") %>% 
+  pivot_longer(c(cont_ref_in_nbhd, cont_nbhd_in_ref), values_to = "containment", names_to = "containment_type") %>% 
+#
+#  
+  ggplot(aes(x=phage_reference, y = hashes, fill = hash_type)) + 
+  geom_col(position = "dodge")+
+#
+#
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  scale_fill_viridis_d(option = "D") +
+  labs(title = "Shared Hashes",
+      x = "duo",
+      y= "number of shared hashes",
+      fill= "Phage Reference Genome")+
+  coord_flip()
+```
+
+
+### containment
+```{r, warning=FALSE}
+
+df %>% 
+#
+#
+    arrange(nbhd_num_hashes) %>% 
+#  filter(nbhd_num_hashes>=2000) %>% 
+  pivot_longer(c(shared_hashes,ref_num_hashes,nbhd_num_hashes), values_to = "hashes", names_to = "hash_type") %>% 
+  pivot_longer(c(cont_ref_in_nbhd, cont_nbhd_in_ref), values_to = "containment", names_to = "containment_type") %>% 
+#
+#
+  ggplot(aes(x=phage_reference, y = containment, fill = containment_type)) + 
+  geom_col(position = "dodge")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  scale_fill_viridis_d(option = "D") +
+  labs(title = "Containments",
+      x = "phage",
+      y= "containment",
+      fill= "Phage Reference Genome")+
+  coord_flip()
+# 
+```
+
+
+
+
+
+
+
 
