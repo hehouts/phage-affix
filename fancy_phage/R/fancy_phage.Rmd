@@ -15,7 +15,7 @@ library(tidyverse)
 
 # Fancy phage
 
-### sourmash gather results
+## sourmash gather results
 gathering a ihmp-ibd virome against the gutphage database, to select a few phage of interest. 
 
 It might be nice to select 5 phage that are abundant, 5 that are high-medium, and 5 that are about the middle.
@@ -25,20 +25,45 @@ It might be nice to select 5 phage that are abundant, 5 that are high-medium, an
 ```
 
 
-```{r}
+```{r, message=FALSE}
 gather_og <- read_csv("../grist/outputs.gather_virome/gather/SM_CTTKX.gather.csv")
-gather_og
-```
 
-
-```{r}
 gather <- gather_og %>%
   separate(name, sep = "\t",into = c("name","database_info"),remove = T) %>%
   relocate(name, f_match, average_abund) %>% 
   arrange(desc(f_match))
-gather
+#gather
+
+gather %>% 
+  filter(
+    name %in% c(
+      'ivig_358', 
+      'uvig_505586', 
+      'uvig_264832', 
+      'uvig_225190', 
+      'uvig_308517', 
+      'uvig_389464', 
+      'uvig_360436', 
+      'uvig_110493', 
+      'uvig_52126', 
+      'uvig_245649', 
+      'uvig_516991', 
+      'uvig_219649',
+      'uvig_143949', 
+      'uvig_96206', 
+      'uvig_221329'
+    )
+  )
 
 ```
+
+
+```{r}
+gather %>% 
+  filter(name %in% c('ivig_358'))
+```
+
+
 
 ### Top 15 phage
 
@@ -114,12 +139,10 @@ For the config:
 ```
 
 
-### making plots
 
+## making plots
 
-
-
-## load libs
+### load plotting libs & data
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -128,20 +151,93 @@ library(janitor)
 library(viridisLite)
 library(ggpubr)
 options(scipen = 999)
-```
 
 
-
-## load data
-```{r}
 df <- read_csv("data/compare.csv", show_col_types = FALSE)
 df
 ```
 
+### shared hashes: nbhd & reference
+```{r}
+names(df)
+head(df)
+```
 
-### shared hashes
 
-                        
+```{r}
+df_long <- df %>% 
+  arrange(nbhd_num_hashes) %>% 
+  pivot_longer(
+    c(nbhd_and_ref_shared_hashes,
+      ref_num_hashes,nbhd_num_hashes, 
+      virome_hits_and_ref_shared_hashes, 
+      virome_hits_and_nbhd_shared_hashes, 
+      virome_hits_num_hashes
+      ), 
+    values_to = "hashes", 
+    names_to = "hash_type"
+    )%>% 
+  pivot_longer(
+    c(
+      ref_in_nbhd, 
+      cont_nbhd_in_ref
+      ), 
+    values_to = "containment", 
+    names_to = "containment_type"
+    )
+
+df_long
+```
+
+```{r}
+
+```
+
+```{r}
+# all shared hashes
+df_long %>% 
+ggplot(aes(x=phage_reference, y = hashes, fill = hash_type)) + 
+  geom_col(position = "dodge")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  scale_fill_viridis_d(option = "D") +
+  labs(title = "Shared Hashes",
+      x = "duo",
+      y= "number of shared hashes",
+      fill= "Phage Reference Genome")+
+  coord_flip()
+```
+
+```{r}
+df_long %>% distinct(hash_type)
+```
+
+
+```{r}
+# just virome_hits_and_ref_shared_hashes, virome hashes, and ref hashes
+df_long %>% 
+  filter(
+    hash_type %in% c(
+#      "virome_hits_num_hashes",
+      "nbhd_and_ref_shared_hashes",				
+      "ref_num_hashes",				
+      "nbhd_num_hashes",			
+      "virome_hits_and_ref_shared_hashes",			
+      "virome_hits_and_nbhd_shared_hashes"
+      )			
+  )%>% 
+ggplot(aes(x=phage_reference, y = hashes, fill = hash_type)) + 
+  geom_col(position = "dodge")+
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))+
+  scale_fill_viridis_d(option = "D") +
+  labs(title = "Shared Hashes",
+      x = "duo",
+      y= "number of shared hashes",
+      fill= "Phage Reference Genome")+
+  facet_grid(~ksize)+
+  coord_flip()
+```
+
+### shared hashes hits & nbhd
 ```{r}
 df %>% 
   arrange(nbhd_num_hashes) %>% 
